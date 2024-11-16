@@ -10,6 +10,7 @@ import "react-circular-progressbar/dist/styles.css";
 export default function SwiperWithMouseWheel() {
   const [movies, setMovies] = useState([]); // State to hold movie data
   const apiKey = import.meta.env.VITE_API_KEY;
+  console.log(apikey);
 
   useEffect(() => {
     fetch(
