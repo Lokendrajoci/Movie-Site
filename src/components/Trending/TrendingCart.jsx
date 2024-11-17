@@ -12,14 +12,8 @@ export default function SwiperWithMouseWheel(props) {
   const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-<<<<<<< HEAD
+
     fetch(`${props.movieList}`)
-=======
-  
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
-    )
->>>>>>> 7fc819d793422eb648d67033e81cca230c234ebf
       .then((response) => response.json())
       .then((data) => {
         const movieData = data.results.map((movie) => ({
