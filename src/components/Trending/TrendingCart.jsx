@@ -11,6 +11,7 @@ export default function SwiperWithMouseWheel() {
   const [movies, setMovies] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
 
+
   useEffect(() => {
     // Fetch popular movies
     fetch(
