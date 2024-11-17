@@ -3,8 +3,7 @@ import MovieLogo from "/src/assets/movix-logo.svg";
 import { CiSearch } from "react-icons/ci";
 
 export default function Navbar() {
-  const apiKey = "YOUR_API_KEY";
-  const baseUrl = "https://api.themoviedb.org/3";
+
 
   return (
     <>
