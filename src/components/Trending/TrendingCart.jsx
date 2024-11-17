@@ -13,7 +13,7 @@ export default function SwiperWithMouseWheel() {
 
 
   useEffect(() => {
-    // Fetch popular movies
+  
     fetch(
       `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
     )
@@ -25,7 +25,7 @@ export default function SwiperWithMouseWheel() {
           release_date: movie.release_date,
           vote_average: movie.vote_average,
           id: movie.id,
-          genres: [], // Initialize genres as empty
+          genres: [],
         }));
         setMovies(movieData);
       })
@@ -48,7 +48,7 @@ export default function SwiperWithMouseWheel() {
           )
         );
 
-        // Merge genres data into the movies state
+    
         setMovies((prevMovies) =>
           prevMovies.map((movie) => {
             const genreData = genresData.find((g) => g.id === movie.id);
@@ -91,7 +91,7 @@ export default function SwiperWithMouseWheel() {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
-                className="rounded-xl"
+                className="rounded-2xl"
               ></div>
 
               <div className="absolute w-16 h-16 bottom-[70px] bg-white rounded-full flex justify-center items-center">
