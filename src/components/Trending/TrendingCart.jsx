@@ -12,7 +12,6 @@ export default function SwiperWithMouseWheel(props) {
   const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-
     fetch(`${props.movieList}`)
       .then((response) => response.json())
       .then((data) => {
@@ -45,10 +44,6 @@ export default function SwiperWithMouseWheel(props) {
           )
         );
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 7fc819d793422eb648d67033e81cca230c234ebf
         setMovies((prevMovies) =>
           prevMovies.map((movie) => {
             const genreData = genresData.find((g) => g.id === movie.id);
@@ -73,7 +68,6 @@ export default function SwiperWithMouseWheel(props) {
       <Swiper
         modules={[Mousewheel, Navigation]}
         navigation={true}
-        // mousewheel={true}
         spaceBetween={8}
         slidesPerView={4}
         className="mt-3 pt-6 pl-7 relative h-[100vh]"
