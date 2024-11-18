@@ -68,7 +68,6 @@ export default function SwiperWithMouseWheel(props) {
       <Swiper
         modules={[Mousewheel, Navigation]}
         navigation={true}
-        // mousewheel={true}
         spaceBetween={8}
         slidesPerView={4}
         className="mt-3 pt-6 pl-7 relative h-[100vh]"
