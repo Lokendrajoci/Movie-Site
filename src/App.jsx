@@ -1,6 +1,8 @@
 import Navbar from "/src/components/Navbar/Navbar";
 import Welcome from "/src/components/Welcome/Welcome";
-import Trending from './components/Trending/Trending'
+import Trending from "./components/Trending/Trending";
+import Footer from "./components/Footer/Footer";
+import Social from "./components/Social Media/Social";
 import "./App.css";
 
 function App() {
@@ -9,7 +11,8 @@ function App() {
       <div className="w-full  bg-NavbarWindow">
         <Navbar />
         <Welcome />
-        <Trending/>
+        <Trending />
+        <Footer />
       </div>
     </>
   );

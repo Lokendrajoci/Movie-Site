@@ -75,7 +75,7 @@ export default function SwiperWithMouseWheel(props) {
         style={{ backgroundColor: "#04152d", width: "75%", left: "65px" }}
       >
         {movies.map((movie, index) => (
-          <SwiperSlide key={index} className="rounded-xl">
+          <SwiperSlide key={index} className="rounded-xl cursor-pointer">
             <div className="w-full relative h-[70vh]">
               <div
                 style={{
