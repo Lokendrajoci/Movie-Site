@@ -12,12 +12,10 @@ function Youtube({ location }) {
         );
         const data = await response.json();
 
-        // Filter the video results for trailers
         const trailer = data.results.find(
           (video) => video.type === "Trailer" && video.site === "YouTube"
         );
 
-        // Set the trailer key if available
         if (trailer) {
           setTrailerKey(trailer.key);
         }

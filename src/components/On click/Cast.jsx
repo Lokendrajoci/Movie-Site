@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper-bundle.min.css";
+
 
 export default function Cast({ location }) {
   const apiKey = import.meta.env.VITE_API_KEY;

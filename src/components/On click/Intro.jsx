@@ -64,7 +64,6 @@ function Intro({ location }) {
 
   return (
     <div className="w-full h-[90vh] flex gap-6 mt-8">
-      {/* Poster Section */}
       <div
         className="h-[83vh] w-[40vw] rounded-2xl"
         style={{
@@ -75,12 +74,9 @@ function Intro({ location }) {
         }}
       ></div>
 
-      {/* Details Section */}
       <div className="h-full w-full p-4 text-white">
-        {/* Title */}
         <p className="text-5xl mt-5">{movieData?.title || "Unknown Title"}</p>
 
-        {/* Genres */}
         <div className="flex gap-2 my-3">
           {genres.length > 0 ? (
             genres.map((genre, index) => (
@@ -93,7 +89,6 @@ function Intro({ location }) {
           )}
         </div>
 
-        {/* Rating */}
         <div className="flex mt-8 h-20">
           <CircularProgressbar
             value={number.vote_average || 0}
@@ -109,13 +104,11 @@ function Intro({ location }) {
           />
         </div>
 
-        {/* Overview */}
         <div className="flex flex-col gap-2 mt-6">
           <p className="text-3xl">Overview</p>
           <p>{movieData?.overview || "No overview available."}</p>
         </div>
 
-        {/* Additional Info */}
         <div className="flex gap-7 mt-5 mb-3">
           <div>Status: {movieData?.status}</div>
           <div>Release Date: {movieData?.releaseDate}</div>
@@ -123,7 +116,6 @@ function Intro({ location }) {
         </div>
         <hr />
 
-        {/* Director & Writer */}
         <div className="mt-2">
           <p>Director: {movieData?.director}</p>
           <hr />
