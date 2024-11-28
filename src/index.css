@@ -2,44 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper {
+body {
+  background-color: #04152d;
+}
 
+/* .swiper {
+ 
     width: 85%;
-    height: 75vh;
+    height: 75vh; 
     position: relative;
 }
 
 .swiper-slide {
     margin-left: 2px;
     width: 18vw !important;
-    height: 50vh !important;
+    height: 50vh !important; 
 
-
-    /* text-align: center; */
-    /* font-size: 18px;
-    /* background: #fff; */
-
-    /* Center slide text vertically */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 
 .swiper-slide img {
-    /* display: block;
+    display: block;
     width: 100%;
-    height: 100%;*/
+    height: 100%;
     object-fit: cover;
     width: 10vw;
     height: 10vh;
+}*/
+
+.swiper-button-prev::after {
+  position: relative;
+  bottom: 10vh;
 }
 
-.swiper-button-next {
-    color: red;
-    /* background-color: aqua; */
-    width: 50px;
-    height: 50px;
-    font-size: 5px !important;
-    background-size: 10px !important;
-    /* background-image: url("./tv.svg"); */
+.swiper-button-next::after {
+  position: relative;
+  bottom: 10vh;
 }
