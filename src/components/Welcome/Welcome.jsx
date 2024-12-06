@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function Welcome() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,7 +25,7 @@ export default function Welcome() {
     const getData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/search/multi?api_key=bf01021b0266306c03dcf3a36a154eba&query=${searchQuery}`
+          `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${searchQuery}`
         );
         const result = await response.json();
         navigate("/about", { state: { movie: result } }); // Navigate with state
