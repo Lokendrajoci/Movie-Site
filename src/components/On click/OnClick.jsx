@@ -7,6 +7,7 @@ import Youtube from "./Youtube";
 
 function OnClick() {
   const location = useLocation();
+  console.log("The location is", location);
 
   return (
     <>

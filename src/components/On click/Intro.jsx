@@ -12,7 +12,7 @@ function Intro({ location }) {
     const fetchMovieData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/${location.state.number.mediaType}/${location.state.number.id}?api_key=${apiKey}&append_to_response=credits`
+          `https://api.themoviedb.org/3/${location.state.number.media_type}/${location.state.number.id}?api_key=${apiKey}&append_to_response=credits`
         );
 
         if (!response.ok) {
@@ -42,7 +42,7 @@ function Intro({ location }) {
     };
 
     fetchMovieData();
-  }, [location.state?.number?.mediaType, location.state?.number?.id, apiKey]);
+  }, [location.state?.number?.media_type, location.state?.number?.id, apiKey]);
 
   const formatRuntime = (runtime) => {
     if (!runtime) return "Unknown";

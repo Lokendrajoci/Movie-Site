@@ -8,7 +8,7 @@ function Youtube({ location }) {
     const fetchTrailer = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/${location.state.number.mediaType}/${location.state.number.id}/videos?api_key=${apiKey}`
+          `https://api.themoviedb.org/3/${location.state.number.media_type}/${location.state.number.id}/videos?api_key=${apiKey}`
         );
         const data = await response.json();
 

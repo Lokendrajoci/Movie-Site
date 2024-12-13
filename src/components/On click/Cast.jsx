@@ -5,12 +5,13 @@ import "swiper/css";
 export default function Cast({ location }) {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [userData, setUserData] = useState([]);
+  console.log("Cast location", location);
 
   useEffect(() => {
     const fetchCastData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/${location.state.number.mediaType}/${location.state.number.id}/credits?api_key=${apiKey}`
+          `https://api.themoviedb.org/3/${location.state.number.media_type}/${location.state.number.id}/credits?api_key=${apiKey}`
         );
 
         if (!response.ok) {
@@ -32,10 +33,9 @@ export default function Cast({ location }) {
       <p className="text-3xl sm:text-4xl mb-6">Top Cast</p>
       <Swiper
         slidesPerView="auto"
-        spaceBetween={5} 
-        loop={true} 
-  
-        centeredSlides={false} 
+        spaceBetween={5}
+        loop={true}
+        centeredSlides={false}
         className="h-auto cursor-pointer"
       >
         {userData.length > 0 ? (

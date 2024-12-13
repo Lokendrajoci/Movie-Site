@@ -40,7 +40,7 @@ const MovieCarousel = ({ movieList, movetv }) => {
           id: item.id,
           title: item.title || item.name,
           avgVotes: item.vote_average,
-          mediaType: item.media_type || movetv,
+          media_type: item.media_type || movetv,
           genreNames: item.genre_ids
             .slice(0, 2)
             .map((genreId) => genreMap[genreId] || "Unknown"),
@@ -96,7 +96,7 @@ const MovieCarousel = ({ movieList, movetv }) => {
                 key={index}
                 className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 transition-all duration-300 ease-in-out cursor-pointer"
                 onClick={() =>
-                  navigate(`/${movie.mediaType}/${movie.id}`, {
+                  navigate(`/${movie.media_type}/${movie.id}`, {
                     state: {
                       number: movie,
                     },
@@ -137,7 +137,6 @@ const MovieCarousel = ({ movieList, movetv }) => {
             ))}
           </CarouselContent>
 
-          {/* Responsive Navigation */}
           <div className="hidden md:block">
             <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-neutral-700/50 hover:bg-neutral-600/50 text-white p-2 rounded-full shadow-lg transition-all duration-300" />
             <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-neutral-700/50 hover:bg-neutral-600/50 text-white p-2 rounded-full shadow-lg transition-all duration-300" />

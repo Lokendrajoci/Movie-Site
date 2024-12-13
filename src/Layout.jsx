@@ -7,6 +7,7 @@ import "./App.css";
 
 function Layout() {
   const apiKey = import.meta.env.VITE_API_KEY;
+ 
 
   const apiUrl = {
     Trending: {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { CiNoWaitingSign } from "react-icons/ci";
 import { useNavigate } from "react-router";
 
 export default function Welcome() {
@@ -28,7 +29,8 @@ export default function Welcome() {
           `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${searchQuery}`
         );
         const result = await response.json();
-        navigate("/about", { state: { movie: result } });
+     
+        navigate("/search", { state: { movie: result } });
       } catch (error) {
         console.log("Error in fetching data", error);
       }

@@ -5,6 +5,7 @@ function Card() {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.movie; 
+  console.log("The data is",data);
 
   if (!data || !data.results || data.results.length === 0) {
     return <p className="text-center text-white">No results found.</p>;

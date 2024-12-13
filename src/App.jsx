@@ -9,6 +9,7 @@ import SearchTM from "./components/Search/SearchTM";
 function DynamicRouteHandler() {
   const location = useLocation();
   const movie = location.state?.movie;
+  
   const path = movie ? `${movie.media_type}/${movie.id}` : "default";
   return (
     <>
@@ -27,7 +28,7 @@ export default function App() {
 
         <Route path="/:mediaType/:id" element={<DynamicRouteHandler />} />
         <Route
-          path="/about"
+          path="/search"
           element={
             <>
               <Navbar />
