@@ -27,7 +27,7 @@ export default function App() {
 
         <Route path="/:mediaType/:id" element={<DynamicRouteHandler />} />
         <Route
-          path="/about"
+          path="/search"
           element={
             <>
               <Navbar />
