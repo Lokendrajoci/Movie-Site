@@ -11,12 +11,14 @@ function OnClick() {
   return (
     <>
       <div className="bg-NavbarWindow flex justify-center mb-5">
-        <div className="h-full w-3/4">
+        <div className="h-full w-3/4 ">
           <Intro location={location} />
           <Cast location={location} />
         </div>
       </div>
+
       <Recomendation location={location} />
+
       <Youtube location={location} />
     </>
   );

@@ -12,7 +12,7 @@ function Intro({ location }) {
     const fetchMovieData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/${location.state.number.media_type}/${location.state.number.id}?api_key=${apiKey}&append_to_response=credits`
+          `https://api.themoviedb.org/3/${location.state.number.mediaType}/${location.state.number.id}?api_key=${apiKey}&append_to_response=credits`
         );
 
         if (!response.ok) {
@@ -42,7 +42,7 @@ function Intro({ location }) {
     };
 
     fetchMovieData();
-  }, [location.state?.number?.media_type, location.state?.number?.id, apiKey]);
+  }, [location.state?.number?.mediaType, location.state?.number?.id, apiKey]);
 
   const formatRuntime = (runtime) => {
     if (!runtime) return "Unknown";
@@ -60,12 +60,12 @@ function Intro({ location }) {
   }
 
   const { number } = location.state;
-  const genres = number.genres || [];
+  const genres = number.genreNames || [];
 
   return (
-    <div className="w-full h-[90vh] flex gap-6 mt-8">
+    <div className="w-full h-auto flex flex-col lg:flex-row gap-6 mt-8 p-4 lg:p-8">
       <div
-        className="h-[83vh] w-[40vw] rounded-2xl"
+        className="h-[50vh] lg:h-[83vh] w-full lg:w-[40vw] rounded-2xl"
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieData?.posterPath})`,
           backgroundSize: "cover",
@@ -74,13 +74,18 @@ function Intro({ location }) {
         }}
       ></div>
 
-      <div className="h-full w-full p-4 text-white">
-        <p className="text-5xl mt-5">{movieData?.title || "Unknown Title"}</p>
+      <div className="h-auto lg:h-full w-full text-white">
+        <p className="text-3xl lg:text-5xl mt-2 lg:mt-5">
+          {movieData?.title || "Unknown Title"}
+        </p>
 
-        <div className="flex gap-2 my-3">
+        <div className="flex flex-wrap gap-2 my-3">
           {genres.length > 0 ? (
             genres.map((genre, index) => (
-              <button className="bg-[#da2f68] rounded-md px-5 h-8" key={index}>
+              <button
+                className="bg-[#da2f68] rounded-md px-4 py-1 text-sm lg:text-base"
+                key={index}
+              >
                 {genre}
               </button>
             ))
@@ -89,10 +94,10 @@ function Intro({ location }) {
           )}
         </div>
 
-        <div className="flex mt-8 h-20">
+        <div className="flex mt-6 lg:mt-8 h-20 justify-center lg:justify-start">
           <CircularProgressbar
-            value={number.vote_average || 0}
-            text={`${Math.round(number.vote_average * 10) / 10}`}
+            value={number.avgVotes || 0}
+            text={`${Math.round(number.avgVotes * 10) / 10}`}
             strokeWidth={10}
             minValue={0}
             maxValue={10}
@@ -100,16 +105,16 @@ function Intro({ location }) {
               pathColor: "#008000",
               trailColor: "white",
             })}
-            className="h-20 w-20"
+            className="h-16 w-16 lg:h-20 lg:w-20"
           />
         </div>
 
         <div className="flex flex-col gap-2 mt-6">
-          <p className="text-3xl">Overview</p>
+          <p className="text-2xl lg:text-3xl">Overview</p>
           <p>{movieData?.overview || "No overview available."}</p>
         </div>
 
-        <div className="flex gap-7 mt-5 mb-3">
+        <div className="flex flex-wrap gap-5 mt-5 mb-3">
           <div>Status: {movieData?.status}</div>
           <div>Release Date: {movieData?.releaseDate}</div>
           <div>Duration: {formatRuntime(movieData?.runtime)}</div>

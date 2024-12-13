@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function Welcome() {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,10 +25,10 @@ export default function Welcome() {
     const getData = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/search/multi?api_key=bf01021b0266306c03dcf3a36a154eba&query=${searchQuery}`
+          `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${searchQuery}`
         );
         const result = await response.json();
-        navigate("/about", { state: { movie: result } }); // Navigate with state
+        navigate("/about", { state: { movie: result } });
       } catch (error) {
         console.log("Error in fetching data", error);
       }
@@ -37,26 +38,28 @@ export default function Welcome() {
   }, [searchQuery, navigate]);
 
   return (
-    <div className="text-white h-[80vh] flex items-center flex-col justify-center">
-      <div className="h-28 w-[5em] flex items-center justify-center text-7xl font-bold">
+    <div className="text-white h-[80vh] flex flex-col items-center justify-center px-4">
+      <div className="text-4xl font-bold md:text-3xl sm:text-2xl mb-4">
         <p>Welcome</p>
       </div>
-      <div className="text-2xl font-semibold h-20 flex justify-center items-center relative bottom-10">
+
+      <div className="text-xl font-semibold text-center mb-6 px-4 sm:text-lg">
         <p>
           Millions of movies, TV shows, and people to discover. Explore Now.
         </p>
       </div>
-      <div className="h-24 w-[60vw] flex relative bottom-10">
+
+      <div className="w-full max-w-4xl flex">
         <input
           type="text"
           placeholder="Search for a movie or TV show..."
-          className="h-16 w-[58vw] text-2xl pl-5 rounded-l-full focus:outline-none text-black"
+          className="flex-grow h-14 text-lg pl-4 rounded-l-full focus:outline-none text-black sm:h-12 sm:text-base"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyPress}
         />
         <button
-          className="w-32 bg-custom-gradient h-16 text-2xl font-semibold rounded-r-full"
+          className="w-28 bg-custom-gradient h-14 text-lg font-semibold rounded-r-full sm:h-12 sm:text-base"
           onClick={handleSearch}
         >
           Search

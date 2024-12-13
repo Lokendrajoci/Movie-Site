@@ -1,6 +1,5 @@
 import React from "react";
-import { useLocation, } from "react-router";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 function Card() {
   const navigate = useNavigate();
@@ -12,41 +11,43 @@ function Card() {
   }
 
   return (
-    <div className="w-[90vw] mx-auto mt-5">
-      <ul className="grid grid-cols-4 gap-6">
+    <div className="w-[90vw] mx-auto mt-5 px-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
         {data.results.map((movie, index) => (
-          <div
+          <li
             key={index}
-            className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden"
+            className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+            onClick={() => {
+              console.log("Clicked data is", movie);
+              navigate(`/${movie.media_type}/${movie.id}`, {
+                state: {
+                  number: movie,
+                },
+              });
+            }}
           >
-            <li
-              className="card-item cursor-pointer"
-              onClick={() => {
-                console.log("Clicked data is", movie);
-                navigate(`/${movie.media_type}/${movie.id}`, {
-                  state: {
-                    number: movie,
-                  },
-                });
-              }}
-            >
+            <div className="cursor-pointer">
               {movie.poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   alt={movie.title || movie.name || "Movie Poster"}
-                  className="w-full h-96 object-cover"
+                  className="w-full h-auto aspect-[2/3] object-cover"
                 />
               ) : (
-                <p className="text-white text-center">No Image Available</p>
+                <div className="w-full aspect-[2/3] flex items-center justify-center text-white bg-gray-700">
+                  No Image Available
+                </div>
               )}
-            </li>
-            <p className="text-3xl truncate text-white">
-              {movie.original_title || movie.original_name}
-            </p>
-            <p className="text-gray-400">
-              {movie.release_date || movie.first_air_date}
-            </p>
-          </div>
+              <div className="p-3">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold truncate text-white mb-1">
+                  {movie.original_title || movie.original_name}
+                </h3>
+                <p className="text-sm text-gray-400">
+                  {movie.release_date || movie.first_air_date}
+                </p>
+              </div>
+            </div>
+          </li>
         ))}
       </ul>
     </div>

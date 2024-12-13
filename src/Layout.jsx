@@ -2,14 +2,11 @@ import Navbar from "/src/components/Navbar/Navbar";
 import Welcome from "/src/components/Welcome/Welcome";
 import Trending from "./components/Trending/Trending";
 import Footer from "./components/Footer/Footer";
-
+import React from 'react'; 
 import "./App.css";
-import { useState } from "react";
-import { useLocation } from "react-router";
 
 function Layout() {
   const apiKey = import.meta.env.VITE_API_KEY;
- 
 
   const apiUrl = {
     Trending: {
@@ -25,12 +22,13 @@ function Layout() {
       options: ["movie", "tv"],
     },
   };
+
   return (
     <>
-      <div className="w-full  bg-NavbarWindow">
+      <div className="w-full bg-NavbarWindow">
         <Navbar />
         <Welcome />
-        <Trending apiUrls={apiUrl}  />
+        <Trending apiUrls={apiUrl} />
         <Footer />
       </div>
     </>

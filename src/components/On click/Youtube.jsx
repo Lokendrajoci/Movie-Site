@@ -8,7 +8,7 @@ function Youtube({ location }) {
     const fetchTrailer = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/${location.state.number.media_type}/${location.state.number.id}/videos?api_key=${apiKey}`
+          `https://api.themoviedb.org/3/${location.state.number.mediaType}/${location.state.number.id}/videos?api_key=${apiKey}`
         );
         const data = await response.json();
 
@@ -32,18 +32,21 @@ function Youtube({ location }) {
     : "";
 
   return (
-    <div className="youtube-container  bg-red-400 h-96 w-96  ">
-      {trailerKey ? (
-        <iframe
-          width="100%"
-          height="400"
-          src={trailerUrl}
-          title="YouTube Trailer"
-          allowFullScreen
-        />
-      ) : (
-        <p>No Trailer Available</p>
-      )}
+    <div className="w-full flex justify-center p-4">
+      <div className="w-full max-w-2xl">
+        {trailerKey ? (
+          <div className="relative pb-[56.25%] h-0">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src={trailerUrl}
+              title="YouTube Trailer"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <p className="text-center text-white">No Trailer Available</p>
+        )}
+      </div>
     </div>
   );
 }
