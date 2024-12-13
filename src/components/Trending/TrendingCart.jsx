@@ -137,7 +137,7 @@ const MovieCarousel = ({ movieList, movetv }) => {
             ))}
           </CarouselContent>
 
-          {/* Responsive Navigation */}
+       
           <div className="hidden md:block">
             <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 bg-neutral-700/50 hover:bg-neutral-600/50 text-white p-2 rounded-full shadow-lg transition-all duration-300" />
             <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 bg-neutral-700/50 hover:bg-neutral-600/50 text-white p-2 rounded-full shadow-lg transition-all duration-300" />
