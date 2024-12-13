@@ -28,7 +28,7 @@ export default function Welcome() {
           `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${searchQuery}`
         );
         const result = await response.json();
-        navigate("/about", { state: { movie: result } });
+        navigate("/search", { state: { movie: result } });
       } catch (error) {
         console.log("Error in fetching data", error);
       }
